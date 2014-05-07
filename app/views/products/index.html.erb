@@ -1,0 +1,101 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+
+
+
+
+<nav>
+  	<div class="grid-container">
+    	<div class="grid-20 nav-logo">
+			<%= image_tag("logo-small.png") %>
+		</div><!--close id="nav-logo"-->
+    	
+		<div class="grid-80">
+    			<ul>
+    				<li><%= link_to "Home", pages_home_path %></li>
+    				<li><%= link_to "About", pages_about_path %></li>
+    				<li><%= link_to "Beers", menu_index_path %></li>
+    				<li><%= link_to "Food", pages_food_path %></li>
+    				<li><%= link_to "Events", pages_events_path %></li>
+    				<li><%= link_to "Distribution", pages_distribution_path %></li>
+    				<li><%= link_to "Contact", pages_contact_path %></li>
+					<li><a class="social-media" href="https://www.facebook.com/StonesThrowBrewing?fref=ts" target="blank"><%= image_tag("icon-facebook-small.gif") %></a></li>
+					<li><a class="social-media" href="https://twitter.com/StonesThrowBrew" target="blank"><%= image_tag("icon-twitter-small.gif") %></a></li>
+					<li><a class="social-media" href="https://www.kickstarter.com/projects/297304074/stones-throw-brewing-tasting-room/posts?page=3" target="blank"><%= image_tag("icon-kick-small.gif") %></a></li>
+    			</ul>
+    	</div>
+  	</div><!--close div class="grid-container"-->  		
+  </nav>
+
+
+
+<div id="sidebar">
+    		<ul>
+    			<li class="selected">Product Listing</li>
+    			<li><%= link_to "Menu Listing", activates_path %></li>
+    			<li></li>
+    			<li></li>
+    			<li></li>
+    			<li></li>
+    			<li></li>
+    		</ul>
+</div> 
+
+
+<div class="grid-container" id="productList">
+    	 <!--close sidebar-->  	
+
+		<div id="product-button">
+			<%= link_to 'New Product', new_product_path %>
+		</div>	
+		
+		
+		
+		
+				<table>
+  				<thead>
+   					 <tr>
+     					 <th>Name</th>
+    					  <th>Description</th>
+    					  <th>Image url</th>
+     						<th>Price</th>
+     						<th>Product Number</th>
+      						<th></th>
+      						<th></th>
+      						<th></th>
+   					 </tr>
+  				</thead>
+
+  				<tbody>
+    				<% @products.each do |product| %>
+     				 <tr>
+      					  <td><%= product.name %></td>
+      					  <td><%= sanitize(product.description) %></td>
+      					  <td><%= product.image_url %></td>
+      					  <td><%= product.price %></td>
+      					  <td><%= product.number %></td>
+      					   <td class="list_actions">
+								<%= link_to 'Show', product %><br/>
+								<%= link_to 'Edit', edit_product_path(product) %><br/>
+								<%= link_to 'Destroy', product, method: :delete,
+									data: { confirm: 'Are you sure?' } %>
+								
+							</td>
+      				</tr>
+    				<% end %>
+  				</tbody>
+				</table>
+
+			<br>
+		
+			
+
+		<!--close grid 70-->
+
+
+
+
+</div>
+
+

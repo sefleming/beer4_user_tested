@@ -1,0 +1,40 @@
+
+
+
+
+
+
+<div class="grid-container">
+	<div class="grid-50 prefix-25 suffix-25"  id="productForm">
+
+
+<h1></h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Image url:</strong>
+  <%= @product.image_url %>
+</p>
+
+<p>
+  <strong>price:</strong>
+  <%= @product.price %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+
+
+
+</div></div>
